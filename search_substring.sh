@@ -9,6 +9,7 @@ SUBSTRING=$1
 fi
 if [ -z $2 ]
 then
+echo "You should provide a FOLDER path as second argument, default is '.'"
 FOLDER="."
 else
 FOLDER=$2

@@ -16,7 +16,7 @@ SUBSTRING2=$2
 fi
 if [ -z $3 ]
 then
-echo "You must provide path of FOLDER as third argument"
+echo "You should provide path of FOLDER as third argument, default is '.'"
 FOLDER="."
 else
 FOLDER=$3

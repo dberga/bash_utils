@@ -2,7 +2,7 @@
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/b‌​in
 if [ -z $1 ]
 then
-echo "You must provide a PROCESS_NAME as first argument, default is python"
+echo "You should provide a PROCESS_NAME as first argument, default is python"
 PROCESS_NAME="python"
 else
 PROCESS_NAME=$1

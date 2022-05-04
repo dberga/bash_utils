@@ -2,8 +2,8 @@
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/b‌​in
 if [ -z $1 ]
 then
-echo "You must provide a USER NAME"
-exit N
+echo "You should provide a git USER NAME, default is $(git config --global user.name)"
+USER=$(git config --global user.name)
 else
 USER=$1
 fi

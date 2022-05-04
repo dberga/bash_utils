@@ -9,7 +9,7 @@ FOLDER=$1
 fi
 if [ -z $2 ]
 then
-echo "You must provide path of OUTPUT PATH as second argument"
+echo "You should provide path of OUTPUT PATH as second argument, default is '.'"
 OUTPUT="."
 else
 OUTPUT=$2
