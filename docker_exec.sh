@@ -8,4 +8,4 @@ else
 CONTAINER=$1
 fi
 echo "run 'source activate ...' in conda case'
-docker exec -it $PROJECT bash
+docker exec -it $CONTAINER bash
