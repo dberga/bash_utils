@@ -1,29 +1,29 @@
 if [ -z $1 ]
 then
-echo "You must provide a FILE_NAME.py as first argument"
-exit
+echo "You must provide a FILE or FOLDER path as first argument"
+    exit 1
 else
-FILE=$1
-fi
-if [ -z $2 ]
-then
-echo "You should provide a FOLDER_NAME as second argument if ran on folder"
-
-# Applying to file only
-ruff check $FILE
-autopep8 $FILE --in-place
-ruff fix --fix $FILE --unsafe-fixes
-tox -e reformat
+if [[ -d $1 ]]; then
+    # Applying to folder
+    ruff check $1
+    autopep8 $1 --in-place --recursive
+    ruff fix --fix $1 --unsafe-fixes
+elif [[ -f $1 ]]; then
+    # Applying to file
+    ruff check $1
+    autopep8 $1 --in-place
+    ruff fix --fix $1 --unsafe-fixes
 else
-
-# Applying to folder
-FOLDER=$2
-autopep8 $FOLDER --in-place --recursive
-ruff fix --fix $FOLDER --unsafe-fixes
-tox -e reformat
+    echo "Path $1 does not exist"
+    exit 1
 fi
 
-# INSTALLATIONS
-# For using autopep8 (pip install autopep8)
-# For using ruff (pip install ruff)
-# For using tox (sudo apt-get install tox)
+fi
+
+## (optional)
+#tox -e reformat
+
+#### INSTALLATIONS
+## For using autopep8 (pip install autopep8)
+## For using ruff (pip install ruff)
+## For using tox (sudo apt-get install tox)
