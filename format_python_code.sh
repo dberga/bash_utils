@@ -3,12 +3,12 @@ then
 echo "You must provide a FILE or FOLDER path as first argument"
     exit 1
 else
-if [[ -d $1 ]]; then
+if [ -d $1 ]; then
     # Applying to folder
     ruff check $1
     autopep8 $1 --in-place --recursive
     ruff fix --fix $1 --unsafe-fixes
-elif [[ -f $1 ]]; then
+elif [ -f $1 ]; then
     # Applying to file
     ruff check $1
     autopep8 $1 --in-place
